@@ -4,12 +4,12 @@ import WeatherSearch from './components/WeatherSearch/WeatherSearch';
 import WeatherDetails from './components/WeatherDetails/WeatherDetails';
 
 const App = () => {
-  const [weather, setWeather] = useState('');
-
-useEffect(() => {
+  const [weather, setWeather] = useState({});
+  
+  useEffect(() => {
 
     const fetchDefaultData = async () => {
-      const data = await weatherService.show('New York');
+      const data = await weatherService.show(city);
       const newWeatherState = {
         location: data.location.name,
         temperature: data.current.temp_f,
@@ -21,6 +21,7 @@ useEffect(() => {
     fetchDefaultData();
 
   }, []);
+
 
 
 return (
